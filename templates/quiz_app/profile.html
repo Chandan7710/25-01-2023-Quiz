@@ -1,0 +1,59 @@
+
+
+{% extends 'layout.html' %}
+
+{% block title %}
+
+Profile Page
+
+{% endblock %}
+
+
+{% block body_block %}
+
+<br>
+
+<div style="text-align:center;">
+
+    <h2>Welcom {{user.username}} For Skill Test Demo Quizzes</h2>
+
+    <h3>There are two quizzes for demo based on Sports and Science</h3>
+
+    <h3>Each Quiz contain 10 questions</h3>
+
+    <h3>For correct answer 10 marks for each question</h3>
+
+    <h3>For wrong answers -3 deducted for each question</h3>
+
+    <h3>Take a quiz and check your knowledge</h3>
+
+    <h3>All the best for your Quiz <b>{{user.username}}</b></h3>
+
+    <h2>{{ text_1 }}</h2> 
+
+
+        {% if quiz_list %}
+    
+            {% for name in quiz_list %}
+    
+            <h3><a href="{% url 'quiz_app:quiz_questions' category_id=name.id %}"><li>{{ name.quiz_category }}</li></a></h3>
+    
+            {% endfor %}
+    
+        {% else %}
+    
+            <h3>No Quiz in the List</h3>
+    
+        {% endif %}
+
+    
+
+</div>
+
+
+
+
+
+{% endblock %}
+
+
